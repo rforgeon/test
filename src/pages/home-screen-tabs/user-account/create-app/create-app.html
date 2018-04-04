@@ -1,0 +1,33 @@
+<!--
+  Generated template for the CreateAppPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Create App</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label color="primary" stacked>Title</ion-label>
+    <ion-input type="text" placeholder="Your app title" [(ngModel)]="this.title"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary" stacked>Icon Image</ion-label>
+    <ion-input type="text" placeholder="Enter an image URL" [(ngModel)]="this.image"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary" stacked>Description</ion-label>
+    <ion-input type="text" placeholder="Short description of your app" [(ngModel)]="this.description"></ion-input>
+  </ion-item>
+  <ion-item>
+    <button ion-button default (click)="addApp()">Create</button>
+  </ion-item>
+
+</ion-content>

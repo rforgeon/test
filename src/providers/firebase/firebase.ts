@@ -23,6 +23,8 @@ export class FirebaseProvider {
 
   }
 
+  // Post Handlers
+
   getPosts() {
      return this.afd.list('/posts/');
    }
@@ -34,5 +36,30 @@ export class FirebaseProvider {
    removePost(id) {
      this.afd.list('/posts/').remove(id);
    }
+
+   // App CRUD Handlers
+
+   getApps() {
+      return this.afd.list('/apps/');
+    }
+
+   getApp(app) {
+      return this.afd.list('/apps/'+app.$key);
+    }
+
+    addApp(data) {
+      this.afd.list('/apps/').push({title:data.title,
+                                     image:data.image,
+                                     description:data.description,
+                                     published:true,
+                                     user:this.currentUser.uid
+                                   });
+    }
+
+    removeApp(id) {
+      this.afd.list('/apps/').remove(id);
+    }
+
+
 
 }

@@ -19,8 +19,7 @@ export class HomeScreenPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
-    this.items = [{image:"https://n6-img-fp.akamaized.net/free-icon/logout_318-138806.jpg?size=338&ext=jpg",
-                  title:"Logout"},
+    this.items = [
                   {image:"https://is2-ssl.mzstatic.com/image/thumb/Purple62/v4/fa/d8/6c/fad86c2d-50a2-a0b9-881f-199f7bb2ada6/AppIcon-1x_U007emarketing-85-220-0-6.png/246x0w.jpg",
                   title:"Ralph"}
                  ]

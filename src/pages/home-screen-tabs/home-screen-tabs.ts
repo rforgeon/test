@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-// import { HomeScreenPage } from '../home-screen/home-screen';
 
 /**
  * Generated class for the HomeScreenTabsPage page.
@@ -16,9 +15,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'home-screen-tabs.html',
 })
 export class HomeScreenTabsPage {
-  tab1Root = 'HomeScreenPage';
-  tab2Root = 'HomeScreenPage';
-  tab3Root = 'HomeScreenPage';  
+  tab1Page = 'UserAccountPage';
+  tab2Page = 'HomeScreenPage';
+  tab3Page = 'HomeScreenPage';
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

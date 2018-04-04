@@ -9,7 +9,6 @@ import {
 } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth';
-import { HomePage } from '../home/home';
 import { EmailValidator } from '../../validators/email';
 import firebase from 'firebase/app';
 
@@ -19,6 +18,7 @@ import firebase from 'firebase/app';
   templateUrl: 'login.html'
 })
 export class LoginPage {
+  homeScreenPage = "HomeScreenPage"
   public loginForm: FormGroup;
   constructor(
     public navCtrl: NavController,
@@ -65,7 +65,7 @@ export class LoginPage {
           password
         );
         await loading.dismiss();
-        this.navCtrl.setRoot(HomePage);
+        this.navCtrl.setRoot(this.homeScreenPage);
       } catch (error) {
         await loading.dismiss();
         const alert: Alert = this.alertCtrl.create({

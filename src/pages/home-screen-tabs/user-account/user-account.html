@@ -1,0 +1,29 @@
+<!--
+  Generated template for the UserAccountPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Account</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    Name: <span *ngIf="this.user.displayName !=null">{{this.user.displayName}}</span>
+  </ion-item>
+  <ion-item>
+    Email: {{this.user.email}}
+  </ion-item>
+  <ion-item no-lines>
+    <button ion-button default [navPush]="this.createPage" [navParams]="">Create New App</button>
+  </ion-item>
+  <ion-item no-lines>
+    <button ion-button default color='danger' (click)="logOut()">Log Out</button>
+  </ion-item>
+</ion-content>

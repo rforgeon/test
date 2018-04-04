@@ -29,7 +29,7 @@ import { firebaseConfig } from './firebaseConfig';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +42,7 @@ import { firebaseConfig } from './firebaseConfig';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
   ],
   providers: [
     StatusBar,
