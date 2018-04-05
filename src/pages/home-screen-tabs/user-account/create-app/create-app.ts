@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
 import { FirebaseProvider } from '../../../../providers/firebase/firebase';
@@ -26,7 +26,8 @@ export class CreateAppPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public firebaseProvider: FirebaseProvider  ) {
+              public firebaseProvider: FirebaseProvider,
+              public toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
@@ -40,10 +41,71 @@ export class CreateAppPage {
       description:this.description
     }
      this.firebaseProvider.addApp(data);
+     this.appCreatedToast();
    }
 
    removeApp(id) {
      this.firebaseProvider.removeApp(id);
    }
+
+
+
+
+
+   appCreatedToast() {
+    let toast = this.toastCtrl.create({
+      message: 'App created successfully',
+      duration: 3000,
+      position: 'bottom'
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
+  }
+
+  titleRequiredToast() {
+   let toast = this.toastCtrl.create({
+     message: 'Title Required.',
+     position: 'bottom',
+     showCloseButton: true,
+   });
+
+   toast.onDidDismiss(() => {
+     console.log('Dismissed toast');
+   });
+
+   toast.present();
+ }
+
+ imageRequiredToast() {
+  let toast = this.toastCtrl.create({
+    message: 'Image Required.',
+    position: 'bottom',
+    showCloseButton: true,
+  });
+
+  toast.onDidDismiss(() => {
+    console.log('Dismissed toast');
+  });
+
+  toast.present();
+}
+
+descriptionRequiredToast() {
+ let toast = this.toastCtrl.create({
+   message: 'Description Required.',
+   position: 'bottom',
+   showCloseButton: true,
+ });
+
+ toast.onDidDismiss(() => {
+   console.log('Dismissed toast');
+ });
+
+ toast.present();
+}
 
 }
