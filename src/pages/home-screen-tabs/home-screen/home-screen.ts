@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+import { FirebaseProvider } from '../../../providers/firebase/firebase';
 
 /**
  * Generated class for the HomeScreenPage page.
@@ -17,17 +20,21 @@ export class HomeScreenPage {
 
   items;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public firebaseProvider: FirebaseProvider) {
 
-    this.items = [
-                  {image:"https://is2-ssl.mzstatic.com/image/thumb/Purple62/v4/fa/d8/6c/fad86c2d-50a2-a0b9-881f-199f7bb2ada6/AppIcon-1x_U007emarketing-85-220-0-6.png/246x0w.jpg",
-                  title:"Ralph"}
-                 ]
+   this.firebaseProvider.getApps().subscribe((result) => {
+        this.items = result;
+        console.log("apps",result)
+        console.log("ITEM",this.items)
+    })
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomeScreenPage');
+
   }
 
 }
