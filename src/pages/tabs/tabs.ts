@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component,ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
 
@@ -18,11 +18,13 @@ import { HomePage } from '../home/home';
 })
 export class TabsPage {
 
-  // tab1Root = HomePage;
+
+  tab1Root = HomePage;
   tab2Root = HomePage;
-  // tab3Root = HomePage;
+  tab3Root = HomePage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
   }
 
   ionViewDidLoad() {

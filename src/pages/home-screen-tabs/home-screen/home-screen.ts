@@ -19,6 +19,7 @@ import { FirebaseProvider } from '../../../providers/firebase/firebase';
 export class HomeScreenPage {
 
   items;
+  tabsPage;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -29,12 +30,17 @@ export class HomeScreenPage {
         console.log("apps",result)
         console.log("ITEM",this.items)
     })
+    this.tabsPage = 'TabsPage'
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomeScreenPage');
 
+  }
+
+  openApp(tile){
+    this.navCtrl.setRoot(this.tabsPage,{tile:tile})
   }
 
 }
