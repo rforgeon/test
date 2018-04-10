@@ -2,7 +2,7 @@ import { Component,ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
-
+import { HomeScreenPage } from '../home-screen-tabs/home-screen/home-screen';
 
 /**
  * Generated class for the TabsPage page.
@@ -19,7 +19,7 @@ import { HomePage } from '../home/home';
 export class TabsPage {
 
 
-  tab1Root = HomePage;
+  tab1Root = HomeScreenPage;
   tab2Root = HomePage;
   tab3Root = HomePage;
 

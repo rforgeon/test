@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+// import { HomeScreenPage } from '../pages/home-screen-tabs/home-screen/home-screen';
 import { FirebaseProvider } from '../providers/firebase/firebase';
 import { AuthProvider } from '../providers/auth/auth';
 

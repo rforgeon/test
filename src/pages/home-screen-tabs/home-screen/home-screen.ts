@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Nav } from 'ionic-angular';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
 import { FirebaseProvider } from '../../../providers/firebase/firebase';
@@ -10,7 +10,6 @@ import { FirebaseProvider } from '../../../providers/firebase/firebase';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
 @IonicPage()
 @Component({
   selector: 'page-home-screen',
@@ -40,7 +39,7 @@ export class HomeScreenPage {
   }
 
   openApp(tile){
-    this.navCtrl.setRoot(this.tabsPage,{tile:tile})
+    this.navCtrl.push(this.tabsPage)
   }
 
 }
