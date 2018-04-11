@@ -42,4 +42,8 @@ export class HomeScreenPage {
     this.navCtrl.push(this.tabsPage)
   }
 
+  leftSwipe(){
+    console.log("LEFT SWIPE")
+  }
+
 }
