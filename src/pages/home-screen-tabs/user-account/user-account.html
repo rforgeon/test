@@ -21,7 +21,7 @@
     Email: {{this.user.email}}
   </ion-item>
   <ion-item no-lines>
-    <button ion-button default [navPush]="this.createPage" [navParams]="">Create New App</button>
+    <button ion-button default [navPush]="this.createPage" [navParams]="{user:this.user}">Create New App</button>
   </ion-item>
   <ion-item no-lines>
     <button ion-button default color='danger' (click)="logOut()">Log Out</button>

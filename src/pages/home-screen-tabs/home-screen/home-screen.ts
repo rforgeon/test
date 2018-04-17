@@ -39,11 +39,29 @@ export class HomeScreenPage {
   }
 
   openApp(tile){
-    this.navCtrl.push(this.tabsPage)
+    this.navCtrl.setRoot(this.tabsPage)
   }
 
-  leftSwipe(){
-    console.log("LEFT SWIPE")
+  swiped(event) {
+    // Place this in DOM: (swipe)="swipe($event)"
+    console.log("EVENT",event)
+    if(event.deltaX <= 0) {
+      // this.navCtrl.parent.select(1);
+      console.log("Swipe left")
+    }
+    else if(event.deltaX >= 0){
+      console.log("Swipe right")
+    }
   }
+
+  pressed(event) {
+    console.log("EVENT",event)
+
+  }
+
+  openPage(page){
+    this.navCtrl.push(page);
+  }
+
 
 }

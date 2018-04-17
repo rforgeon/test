@@ -19,7 +19,7 @@ import { HomeScreenPage } from '../home-screen-tabs/home-screen/home-screen';
 export class TabsPage {
 
 
-  tab1Root = HomeScreenPage;
+  tab1Root = HomePage;
   tab2Root = HomePage;
   tab3Root = HomePage;
 

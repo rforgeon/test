@@ -13,17 +13,22 @@
 </ion-header> -->
 
 
-<ion-content padding  >
-  <div *ngFor="let tile of items">
-    <div class="fullTile" (click)="openApp(tile);">
-      <div class="tileImg">
-        <img src="{{tile.image}}"/>
-      </div>
-      <div class="tileTitle">
-        {{tile.title}}
+<ion-content padding  (press)="pressed($event)">
+    <div *ngFor="let tile of items" >
+      <div class="fullTile" (click)="openApp(tile);" >
+        <div class="tileImg">
+          <img src="{{tile.image}}"/>
+        </div>
+        <div class="tileTitle">
+          {{tile.title}}
+        </div>
       </div>
     </div>
-  </div>
 
+    <ion-footer class="footer">
+      <ion-icon class="icon-left" name="person" (click)="openPage('UserAccountPage')"></ion-icon>
+      <!-- <ion-icon class="icon-middle" name="grid"></ion-icon> -->
+      <ion-icon class="icon-right" name="search"></ion-icon>
+    </ion-footer>
 
 </ion-content>

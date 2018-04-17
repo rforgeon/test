@@ -12,6 +12,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { HomePage } from '../home/home';
 import { EmailValidator } from '../../validators/email';
 import firebase from 'firebase/app';
+import { FirebaseProvider } from '../../providers/firebase/firebase';
 
 @IonicPage()
 @Component({
@@ -25,6 +26,7 @@ export class SignupPage {
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,
     public authProvider: AuthProvider,
+    public firebaseProvider: FirebaseProvider,
     formBuilder: FormBuilder
   ) {
     this.signupForm = formBuilder.group({
@@ -57,7 +59,8 @@ export class SignupPage {
           password
         );
         await loading.dismiss();
-        this.navCtrl.setRoot(HomePage);
+
+        this.navCtrl.setRoot('MenuPage');
       } catch (error) {
         await loading.dismiss();
         const alert: Alert = this.alertCtrl.create({

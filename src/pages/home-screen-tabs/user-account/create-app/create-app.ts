@@ -23,11 +23,14 @@ export class CreateAppPage {
   image: string;
   description: string
   published: boolean;
+  user;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public firebaseProvider: FirebaseProvider,
               public toastCtrl: ToastController) {
+
+              this.user = this.navParams.get('user');
   }
 
   ionViewDidLoad() {
@@ -38,7 +41,8 @@ export class CreateAppPage {
     var data = {
       title:this.title,
       image:this.image,
-      description:this.description
+      description:this.description,
+      //See firebase provider for additional fields
     }
      this.firebaseProvider.addApp(data);
      this.appCreatedToast();

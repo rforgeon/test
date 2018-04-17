@@ -14,7 +14,9 @@ import firebase from 'firebase';
 */
 @Injectable()
 export class FirebaseProvider {
+
   currentUser;
+
   constructor(public http: HttpClient,
               public afd: AngularFireDatabase) {
     console.log('Hello FirebaseProvider Provider');
@@ -40,7 +42,7 @@ export class FirebaseProvider {
    // App CRUD Handlers
 
    getApps() {
-      return this.afd.list('/apps/');
+      return this.afd.list(`/apps/`)
     }
 
    getApp(app) {
@@ -48,16 +50,46 @@ export class FirebaseProvider {
     }
 
     addApp(data) {
-      this.afd.list('/apps/').push({title:data.title,
+      var app = this.afd.list('/apps/').push({title:data.title,
                                      image:data.image,
                                      description:data.description,
                                      published:true,
-                                     user:this.currentUser.uid
+                                     user:this.currentUser.uid,
+                                     followers: [],
+                                     subscribers: [],
                                    });
+      this.afd.list('/userProfile/'+this.currentUser.uid+'/apps/').push(app.key)
     }
 
     removeApp(id) {
       this.afd.list('/apps/').remove(id);
+    }
+
+    unpublishApp(id){
+      this.afd.list('/apps/').update(id, { published: false });
+    }
+
+    // User attribute CRUD Handlers
+
+    getUserAttributes(user){
+      return this.afd.list('/userProfile/'+user.uid);
+    }
+
+    followApp(app){
+      // Update app data
+      this.afd.list('/apps/'+app.key+'followers').push(this.currentUser.uid)
+
+      // Update user data
+      this.afd.list('/userProfile/'+this.currentUser.uid+'/following/').push(app.key)
+
+    }
+
+    unfollowApp(app){
+      // Update app data
+      this.afd.list('/apps/'+app.key+'followers').remove(this.currentUser.uid)
+
+      // Update user data
+      this.afd.list('/userProfile/'+this.currentUser.uid+'/following/').remove(app.key)
     }
 
 
